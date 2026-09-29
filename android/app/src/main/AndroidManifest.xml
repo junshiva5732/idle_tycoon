@@ -21,10 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- AdMob App ID: 현재 Google 샘플 ID. AdMob 앱 등록 후 교체 (README 출시 체크리스트) -->
+        <!-- AdMob App ID (Tap Tycoon, 2026-09-29 발급) -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-7493209423244427~7004391969"/>
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

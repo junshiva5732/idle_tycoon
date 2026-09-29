@@ -72,10 +72,9 @@ flutter build apk --debug
 ## 출시 체크리스트
 
 ### 1. AdMob
-- [ ] https://admob.google.com 에서 Android 앱 "Tap Tycoon" 등록
-- [ ] 광고 단위 3개 생성: 배너 / 전면 / 보상형
-- [ ] `lib/ads/ad_ids.dart` 의 `_androidReal` 을 실제 ID 로 교체 (지금은 테스트 ID)
-- [ ] `android/app/src/main/AndroidManifest.xml` 의 `APPLICATION_ID` 교체 (지금은 Google 샘플 ID)
+- [x] AdMob Android 앱 "Tap Tycoon" 등록 (2026-09-29, App ID `ca-app-pub-7493209423244427~7004391969`, 스토어 연결은 Play 게시 후)
+- [x] 광고 단위 3개: banner_main `/3854561000`, interstitial_retire `/7761930708`, rewarded_boost `/6448849030`
+- [x] `lib/ads/ad_ids.dart` `_androidReal`, `AndroidManifest.xml` `APPLICATION_ID` 실제 ID 로 교체
 - [ ] `ios/Runner/Info.plist` 의 `GADApplicationIdentifier` 교체
 - [ ] 개발 중 실제 ID로 광고 클릭 금지 (계정 정지 사유)
 
@@ -87,7 +86,9 @@ flutter build apk --debug
 - [x] 업로드 키 `android/upload-keystore.jks` (PKCS12, alias `upload`) + `android/key.properties` — git 제외, **따로 백업 필수**
 - [x] `flutter build appbundle --release` → `build/app/outputs/bundle/release/app-release.aab` (targetSdk 36)
 - [ ] 스토어 그래픽: 아이콘 512, 기능 그래픽, 스크린샷
-- [ ] Play Console 앱 생성 (카테고리: 게임 > 시뮬레이션 또는 캐주얼), 콘텐츠 등급, 내부 테스트 게시
+- [x] Play Console 앱 생성 (2026-09-29, 앱 ID 4973586879462626733, "Tap Tycoon: Idle Clicker", 게임·무료, 기본 언어 en-US)
+- [x] 내부 테스트 1 (1.0.0) 게시 (2026-09-29, 테스터 "Internal testers" + "오늘의 운세 테스터"), 참여 링크 https://play.google.com/apps/internaltest/4701467622018387148
+- [ ] 앱 콘텐츠 선언(개인정보처리방침 URL, 광고, 데이터 보안, 콘텐츠 등급, 타겟층), 스토어 등록정보·카테고리
 - [ ] 비공개 테스트(12명 × 14일) → 프로덕션
 
 ### 4. 출시 후 확장 아이디어
