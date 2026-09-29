@@ -79,7 +79,7 @@ flutter build apk --debug
 - [ ] 개발 중 실제 ID로 광고 클릭 금지 (계정 정지 사유)
 
 ### 2. 개인정보 / 정책
-- [ ] GitHub 저장소 생성 후 Pages(`main` / `/docs`) 로 `docs/privacy-policy.html` 게시
+- [x] 개인정보처리방침 https://junshiva5732.github.io/idle_tycoon/privacy-policy (GitHub Pages `main` / `/docs`)
 - [ ] Play Console 데이터 보안: 광고 ID 수집(AdMob), 게임 데이터는 기기에만 저장
 
 ### 3. Google Play
@@ -88,7 +88,8 @@ flutter build apk --debug
 - [ ] 스토어 그래픽: 아이콘 512, 기능 그래픽, 스크린샷
 - [x] Play Console 앱 생성 (2026-09-29, 앱 ID 4973586879462626733, "Tap Tycoon: Idle Clicker", 게임·무료, 기본 언어 en-US)
 - [x] 내부 테스트 1 (1.0.0) 게시 (2026-09-29, 테스터 "Internal testers" + "오늘의 운세 테스터"), 참여 링크 https://play.google.com/apps/internaltest/4701467622018387148
-- [ ] 앱 콘텐츠 선언(개인정보처리방침 URL, 광고, 데이터 보안, 콘텐츠 등급, 타겟층), 스토어 등록정보·카테고리
+- [x] 앱 콘텐츠 선언 전부 + 광고 ID 선언, 스토어 등록정보(en-US 기본, ko-KR), 카테고리 게임>시뮬레이션 (2026-09-29, `store/listing.md`)
+- [x] 비공개 테스트 "Alpha" (177개국, 테스터 Internal testers + 오늘의 운세 테스터, 1.0.0) 검토 제출 (2026-09-29)
 - [ ] 비공개 테스트(12명 × 14일) → 프로덕션
 
 ### 4. 출시 후 확장 아이디어
