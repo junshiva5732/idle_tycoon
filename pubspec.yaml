@@ -1,0 +1,36 @@
+name: idle_tycoon
+description: "부자 키우기 — 탭하고 방치해서 거지에서 재벌까지. AdMob 광고(배너 / 전면 / 보상형)로 수익화."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_mobile_ads: ^9.1.0
+  shared_preferences: ^2.5.3
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+# 앱 아이콘 생성: dart run flutter_launcher_icons
+# 원본 이미지는 tool/make_icon.py 로 생성.
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "#F5A623"
+  adaptive_icon_foreground: "assets/icon/icon_fg.png"
+  adaptive_icon_monochrome: "assets/icon/icon_fg.png"
+  remove_alpha_ios: true
