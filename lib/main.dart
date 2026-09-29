@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,6 +15,9 @@ import 'services/storage.dart';
 /// 예: flutter build apk --debug --dart-define=LOCALE=ja
 const _localeOverride = String.fromEnvironment('LOCALE');
 
+/// 스크린샷 촬영용 중반 진행 상태 (디버그 빌드에서만 동작). 예: --dart-define=DEMO=true
+const _demo = bool.fromEnvironment('DEMO');
+
 /// 앱 시드색 (황금빛 주황). 시드에서 나온 primary 는 갈색이라 버튼색(primary)은 주황으로 고정한다.
 const seedColor = Color(0xFFF5A623);
 
@@ -27,9 +32,13 @@ Future<void> main() async {
   AdManager.instance.init();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final storage = await Storage.create();
-  final game = GameState();
+  final game = GameState(random: kDebugMode && _demo ? math.Random(3) : null);
   final saved = storage.loadGame();
-  if (saved != null) game.loadJson(saved);
+  if (kDebugMode && _demo) {
+    _seedDemo(game);
+  } else if (saved != null) {
+    game.loadJson(saved);
+  }
   runApp(TycoonApp(storage: storage, game: game));
 }
 
@@ -78,4 +87,20 @@ class _TycoonAppState extends State<TycoonApp> {
       ),
     );
   }
+}
+
+/// 스토어 스크린샷용: 사업장 여러 개, 명성, 부스트 진행 중, 2시간 부재(오프라인 보상 창).
+void _seedDemo(GameState g) {
+  final now = DateTime.now();
+  g
+    ..money = 4.83e7
+    ..runEarned = 2.1e8
+    ..lifetimeEarned = 9.6e8
+    ..tapLevel = 17
+    ..fame = 12
+    ..retirements = 1
+    ..totalTaps = 4210
+    ..owned = [132, 104, 76, 51, 38, 25, 11, 2, 0, 0]
+    ..boostUntil = now.add(const Duration(minutes: 23, seconds: 41))
+    ..lastSeen = now.subtract(const Duration(hours: 2, minutes: 14));
 }
