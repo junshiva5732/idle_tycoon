@@ -54,3 +54,6 @@ app.*.map.json
 
 # JVM 힙 덤프
 *.hprof
+
+# Gradle 보고서
+/android/build/
