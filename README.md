@@ -90,6 +90,7 @@ flutter build apk --debug
 - [x] 내부 테스트 1 (1.0.0) 게시 (2026-09-29, 테스터 "Internal testers" + "오늘의 운세 테스터"), 참여 링크 https://play.google.com/apps/internaltest/4701467622018387148
 - [x] 앱 콘텐츠 선언 전부 + 광고 ID 선언, 스토어 등록정보(en-US 기본, ko-KR), 카테고리 게임>시뮬레이션 (2026-09-29, `store/listing.md`)
 - [x] 비공개 테스트 "Alpha" (177개국, 테스터 Internal testers + 오늘의 운세 테스터, 1.0.0) 검토 제출 (2026-09-29)
+- [x] 1.0.1 (versionCode 2, 태블릿 배너 수정) 2026-09-30: 내부 테스트 게시 + 비공개 테스트 Alpha 검토 제출
 - [ ] 비공개 테스트(12명 × 14일) → 프로덕션
 
 ### 4. 출시 후 확장 아이디어
