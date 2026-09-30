@@ -1,7 +1,7 @@
 name: idle_tycoon
 description: "부자 키우기 — 탭하고 방치해서 거지에서 재벌까지. AdMob 광고(배너 / 전면 / 보상형)로 수익화."
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ^3.8.0

@@ -15,6 +15,9 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   BannerAd? _ad;
   bool _loaded = false;
 
+  /// 적응형 크기가 실패하면 표준 320x50 배너로 한 번만 다시 시도한다.
+  bool _triedFallback = false;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -25,9 +28,15 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   }
 
   Future<void> _load(int width) async {
-    final size = await AdSize.getLargeAnchoredAdaptiveBannerAdSize(width);
-    if (size == null || !mounted) return;
+    // getLargeAnchoredAdaptiveBannerAdSize 는 태블릿(Galaxy Tab A7, 800dp)에서 화면보다 넓은
+    // 광고(1333dp)를 요청해 "Ad size will not fit on screen" 으로 실패한다. 이전 API 를 쓴다.
+    // ignore: deprecated_member_use
+    final size = await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(width);
+    if (!mounted) return;
+    _create(size ?? AdSize.banner);
+  }
 
+  void _create(AdSize size) {
     _ad = BannerAd(
       adUnitId: AdIds.banner,
       size: size,
@@ -39,7 +48,10 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
         onAdFailedToLoad: (ad, err) {
           debugPrint('Banner load failed: $err');
           ad.dispose();
-          _ad = null;
+          if (!_triedFallback && size != AdSize.banner && mounted) {
+            _triedFallback = true;
+            _create(AdSize.banner);
+          }
         },
       ),
     )..load();
